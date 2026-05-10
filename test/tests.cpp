@@ -1,9 +1,12 @@
 // Copyright 2021 GHA Test Team
-#include <gtest/gtest.h>
-#include "../include/textgen.h"
-#include <iostream>
 #include <cassert>
+
+#include <deque>
+#include <iostream>
+#include <string>
 #include <vector>
+
+#include "../include/textgen.h"
 
 using Prefix = std::deque<std::string>;
 
@@ -190,14 +193,12 @@ void test_generation_limit() {
     std::string word;
     int wordCount = 0;
     while (ss >> word) wordCount++;
-
-    assert(wordCount <= 5); 
+    assert(wordCount <= 5);
     std::cout << "  PASSED\n";
 }
 
 int main() {
     std::cout << "\n=== Running Markov Chain Text Generator Tests ===\n\n";
-
     test_prefix_creation();
     test_prefix_suffix_record();
     test_single_suffix_selection();
