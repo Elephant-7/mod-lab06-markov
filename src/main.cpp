@@ -1,6 +1,10 @@
+// Copyright 2026 Belev Timur
 #include "../include/textgen.h"
-#include <iostream>
+
 #include <fstream>
+#include <iostream>
+#include <string> 
+
 
 int main(int argc, char* argv[]) {
     const int NPREF = 2;
@@ -11,8 +15,7 @@ int main(int argc, char* argv[]) {
 
     if (argc >= 2) {
         inputFile = argv[1];
-    }
-    else {
+    } else {
         std::cout << "Enter input file name: ";
         std::cin >> inputFile;
     }
@@ -32,7 +35,7 @@ int main(int argc, char* argv[]) {
 
         std::ofstream out(outputFile);
         if (!out.is_open()) {
-            throw std::runtime_error("Cannot create output file: " + outputFile);
+            throw std::runtime_error("Cannot output file: " + outputFile);
         }
 
         out << generatedText;
@@ -42,7 +45,6 @@ int main(int argc, char* argv[]) {
         std::cout << "\n--- Generated Text Preview ---\n";
         std::cout << generatedText.substr(0, 500) << "...\n";
         std::cout << "----------------------------\n";
-
     }
     catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << std::endl;
