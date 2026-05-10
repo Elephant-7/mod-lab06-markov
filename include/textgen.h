@@ -1,6 +1,6 @@
 // Copyright 2026 Belev Timur
-#ifndef TEXTGEN_H
-#define TEXTGEN_H
+#ifndef INCLUDE_TEXTGEN_H
+#define INCLUDE_TEXTGEN_H
 
 #include <deque>
 #include <map>
@@ -9,7 +9,7 @@
 #include <random>
 
 class TextGenerator {
-private:
+private: 
     using Prefix = std::deque<std::string>;
     using StateTab = std::map<Prefix, std::vector<std::string>>;
 
@@ -22,8 +22,8 @@ private:
     Prefix createInitialPrefix(const std::vector<std::string>& words);
     std::string getRandomSuffix(const std::vector<std::string>& suffixes);
 
-public:
-    TextGenerator(int npref = 2, int maxgen = 1000);
+public: 
+    explicit TextGenerator(int npref = 2, int maxgen = 1000);
 
     void loadText(const std::string& filename);
     std::string generate();
