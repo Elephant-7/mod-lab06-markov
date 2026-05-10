@@ -5,7 +5,7 @@
 #include <algorithm>
 #include <cctype>
 #include <string>
-#include <vector> 
+#include <vector>
 
 TextGenerator::TextGenerator(int npref, int maxgen)
     : npref(npref), maxgen(maxgen), rng(std::random_device {}()) {
@@ -137,7 +137,8 @@ bool TextGenerator::hasPrefix(const Prefix& prefix) const {
     return statetab.find(prefix) != statetab.end();
 }
 
-std::vector<std::string> TextGenerator::getSuffixes(const Prefix& prefix) const {
+std::vector<std::string> TextGenerator::
+getSuffixes(const Prefix& prefix) const {
     auto it = statetab.find(prefix);
     if (it != statetab.end()) {
         return it->second;
