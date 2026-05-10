@@ -36,4 +36,4 @@ class TextGenerator {
     std::vector<std::string> getSuffixes(const Prefix& prefix) const;
 };
 
-#endif INCLUDE_TEXTGEN_H_
+#endif // INCLUDE_TEXTGEN_H_
