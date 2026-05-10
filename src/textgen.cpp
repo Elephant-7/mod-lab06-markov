@@ -1,11 +1,14 @@
+// Copyright 2026 Belev Timur
 #include "../include/textgen.h"
 #include <fstream>
 #include <sstream>
 #include <algorithm>
 #include <cctype>
+#include <string>
+#include <vector> 
 
 TextGenerator::TextGenerator(int npref, int maxgen)
-    : npref(npref), maxgen(maxgen), rng(std::random_device{}()) {
+    : npref(npref), maxgen(maxgen), rng(std::random_device {}()) {
 }
 
 void TextGenerator::loadText(const std::string& filename) {
@@ -55,7 +58,8 @@ void TextGenerator::buildTable(const std::string& filename) {
     }
 }
 
-TextGenerator::Prefix TextGenerator::createInitialPrefix(const std::vector<std::string>& words) {
+TextGenerator::Prefix TextGenerator::
+createInitialPrefix(const std::vector<std::string>& words) {
     Prefix prefix;
     for (int i = 0; i < npref && static_cast<size_t>(i) < words.size(); ++i) {
         prefix.push_back(words[i]);
@@ -63,7 +67,8 @@ TextGenerator::Prefix TextGenerator::createInitialPrefix(const std::vector<std::
     return prefix;
 }
 
-std::string TextGenerator::getRandomSuffix(const std::vector<std::string>& suffixes) {
+std::string TextGenerator::
+getRandomSuffix(const std::vector<std::string>& suffixes) {
     if (suffixes.empty()) {
         return "";
     }
@@ -119,7 +124,8 @@ std::string TextGenerator::generateFromPrefix(const Prefix& startPrefix) {
     return output;
 }
 
-void TextGenerator::addSuffix(const Prefix& prefix, const std::string& suffix) {
+void TextGenerator::addSuffix
+                            (const Prefix& prefix, const std::string& suffix) {
     statetab[prefix].push_back(suffix);
 }
 
