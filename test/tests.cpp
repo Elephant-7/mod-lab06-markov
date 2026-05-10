@@ -195,21 +195,3 @@ void test_generation_limit() {
     assert(wordCount <= 5);
     std::cout << "  PASSED\n";
 }
-
-int main() {
-    std::cout << "\n=== Running Markov Chain Text Generator Tests ===\n\n";
-    test_prefix_creation();
-    test_prefix_suffix_record();
-    test_single_suffix_selection();
-    test_multiple_suffix_selection();
-    test_text_generation_fixed_length();
-    test_different_prefix_sizes();
-    test_empty_table();
-    test_clear_table();
-    test_multiple_suffixes_same_prefix();
-    test_generation_limit();
-
-    std::cout << "\n=== All tests passed! ===\n\n";
-
-    return 0;
-}
