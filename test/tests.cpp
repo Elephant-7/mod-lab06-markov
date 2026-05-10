@@ -187,8 +187,6 @@ void test_generation_limit() {
     gen.addSuffix(p4, "f");
 
     std::string result = gen.generateFromPrefix(p1);
-
-   
     std::stringstream ss(result);
     std::string word;
     int wordCount = 0;
